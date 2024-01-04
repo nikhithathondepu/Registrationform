@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 400px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 16px;
+            box-sizing: border-box;
+        }
+
+        .button-container {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        button {
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+            border-radius: 4px;
+            width: 48%;
+            box-sizing: border-box;
+        }
+
+        #submitBtn {
+            background-color: #4caf50;
+            color: #fff;
+        }
+
+        #clearBtn {
+            background-color: #ff3333;
+            color: #fff;
+        }
+
+        h2 {
+            margin-top: 20px;
+        }
+
+        p {
+            margin: 8px 0;
+        }
+    </style>
+</head>
+<body>
+
+    <form id="registrationForm">
+        <h1>Registration Form</h1>
+        <p>Please fill in this form to create an account.</p>
+        <p>  </p>
+        <label for="firstName">First Name:</label>
+        <input type="text" id="firstName" name="firstName" required>
+
+        <label for="lastName">Last Name:</label>
+        <input type="text" id="lastName" name="lastName" required>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="website">Website Link:</label>
+        <input type="text" id="website" name="website">
+
+        <label for="image">Image Link:</label>
+        <input type="text" id="image" name="image">
+
+        <div class="button-container">
+            <button type="button" id="submitBtn" onclick="displayData()">Submit</button>
+            <button type="button" id="clearBtn" onclick="clearForm()">Clear</button>
+        </div>
+    </form>
+
+    <div id="displayData" style="display: none;">
+        <h2>Submitted Data:</h2>
+        <p id="displayFirstName"></p>
+        <p id="displayLastName"></p>
+        <p id="displayEmail"></p>
+        <p id="displayWebsite"></p>
+        <p id="displayImage"></p>
+    </div>
+
+    <script>
+        function displayData() {
+            const firstName = document.getElementById('firstName').value;
+            const lastName = document.getElementById('lastName').value;
+            const email = document.getElementById('email').value;
+            const website = document.getElementById('website').value;
+            const image = document.getElementById('image').value;
+
+            document.getElementById('displayFirstName').innerText = 'First Name: ' + firstName;
+            document.getElementById('displayLastName').innerText = 'Last Name: ' + lastName;
+            document.getElementById('displayEmail').innerText = 'Email: ' + email;
+            document.getElementById('displayWebsite').innerText = 'Website Link: ' + website;
+            document.getElementById('displayImage').innerText = 'Image Link: ' + image;
+
+            document.getElementById('registrationForm').style.display = 'none';
+            document.getElementById('displayData').style.display = 'block';
+        }
+
+        function clearForm() {
+            document.getElementById('registrationForm').reset();
+        }
+    </script>
+
+</body>
+</html>
+
